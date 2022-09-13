@@ -15,7 +15,8 @@ public class Location {
 
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
-    public Location(String aValue) {
+    //**I changed from public Location(String aValue) to make the tests work for items 4
+    public Location(String value) {
         this();
         this.value = value;
     }
@@ -53,5 +54,6 @@ public class Location {
     public void setValue(String value) {
         this.value = value;
     }
+
 
 }

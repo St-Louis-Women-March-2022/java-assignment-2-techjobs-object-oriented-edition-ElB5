@@ -22,6 +22,8 @@ public class Job {
         nextId++;
     }
 
+
+
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -94,4 +96,5 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
 }
