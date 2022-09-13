@@ -57,5 +57,4 @@ public class JobTest {
         assertFalse(testJob4 == testJob5);
 
     }
-
 }
