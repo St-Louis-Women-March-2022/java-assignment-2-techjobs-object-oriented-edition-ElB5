@@ -55,6 +55,43 @@ public class JobTest {
         Job testJob5 = new Job ("Rental Rep", new Employer ("ERAC"), new Location ("STL"),
                 new PositionType ("level 1"), new CoreCompetency ("negotiation"));
         assertFalse(testJob4 == testJob5);
+    }
 
+    //tests for blank line before and after the job information.
+    @Test
+    public void testToStringStartsAndEndsWithNewLine () {
+        Job testJob6 = new Job("Rental Rep", new Employer ("ERAC"), new Location ("STL"),
+                new PositionType ("level 1"), new CoreCompetency ("negotiation"));
+        //String testJob6String = "ID:  6\nName: Rental Rep\nEmployer: ERAC\nLocation: STL\nPosition Type: level 1\nCore Competency: negotiation";
+        //reflects the 1st \n character
+        char newLine = testJob6.toString().charAt(0);
+        //reflects the last character, \n
+        char newLine2 = testJob6.toString().charAt(testJob6.toString().length()-1);
+
+
+//        assertEquals('\n' + testJob6String + '\n', testJob6.toString());
+        //use assertEquals to verify that the 1st and last characters in toString are \n:
+        assertEquals(newLine, '\n');
+        assertEquals(newLine2, '\n');
+    }
+
+    //tests that string should contain a label for each field, followed by the data stored in that field. .
+    // Each field should be on its own line.
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testJob7 = new Job("Rental Rep", new Employer ("ERAC"), new Location ("STL"),
+                new PositionType ("level 1"), new CoreCompetency ("negotiation"));
+        String testJob7String = "\nID: 4\nName: Rental Rep\nEmployer: ERAC\nLocation: STL\nPosition Type: level 1\nCore Competency: negotiation\n";
+        assertEquals(testJob7String, testJob7.toString());
+    }
+
+
+    //tests for If a field is empty, the method should add, “Data not available” after the label.
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job testJob8 = new Job ("", new Employer (""), new Location (""),
+                new PositionType (""), new CoreCompetency (""));
+        String testJob8String = "\nID: 3\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n";
+        assertEquals(testJob8String, testJob8.toString());
     }
 }

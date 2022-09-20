@@ -97,4 +97,35 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+    //add toString method, When passed a Job object, it should return a string that contains a blank
+    // line before and after the job information. The string should contain a label for each field, followed by the
+    // data stored in that field. Each field should be on its own line.
+    @Override
+    public String toString() {
+        //name is not like the others due to name is a String parameter, the others are classes being fed in
+        if (name == "") {
+            name = "Data not available";
+        }
+        if (Job.this.employer.getValue().equals("")) {
+            this.employer.setValue("Data not available");
+        }
+        if (Job.this.location.getValue().equals("")) {
+            this.location.setValue("Data not available");
+        }
+        if (Job.this.positionType.getValue().equals("")) {
+            this.positionType.setValue("Data not available");
+        }
+        if (Job.this.coreCompetency.getValue().equals("")) {
+            this.coreCompetency.setValue("Data not available");
+        }
+        return '\n' +
+                "ID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                '\n';
+    }
 }
