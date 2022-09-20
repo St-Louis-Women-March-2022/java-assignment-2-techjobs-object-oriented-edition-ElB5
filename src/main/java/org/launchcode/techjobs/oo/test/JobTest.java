@@ -9,7 +9,6 @@ import org.launchcode.techjobs.oo.PositionType;
 import org.launchcode.techjobs.oo.Employer;
 import org.launchcode.techjobs.oo.CoreCompetency;
 import org.launchcode.techjobs.oo.Location;
-
 import static org.junit.Assert.*;
 
 /**
@@ -30,7 +29,7 @@ public class JobTest {
     //Test the Full Constructor-define a test called testJobConstructorSetsAllFields.
     @Test
     public void testJobConstructorSetsAllFields () {
-//        //Declare and initialize a new Job object with the following data:
+       //Declare and initialize a new Job object with the following data:
         Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         //Use assertTrue and assertEquals statements to test that the constructor correctly assigns both the class
@@ -62,14 +61,10 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine () {
         Job testJob6 = new Job("Rental Rep", new Employer ("ERAC"), new Location ("STL"),
                 new PositionType ("level 1"), new CoreCompetency ("negotiation"));
-        //String testJob6String = "ID:  6\nName: Rental Rep\nEmployer: ERAC\nLocation: STL\nPosition Type: level 1\nCore Competency: negotiation";
         //reflects the 1st \n character
         char newLine = testJob6.toString().charAt(0);
         //reflects the last character, \n
         char newLine2 = testJob6.toString().charAt(testJob6.toString().length()-1);
-
-
-//        assertEquals('\n' + testJob6String + '\n', testJob6.toString());
         //use assertEquals to verify that the 1st and last characters in toString are \n:
         assertEquals(newLine, '\n');
         assertEquals(newLine2, '\n');
@@ -85,8 +80,7 @@ public class JobTest {
         assertEquals(testJob7String, testJob7.toString());
     }
 
-
-    //tests for If a field is empty, the method should add, “Data not available” after the label.
+    //tests for If a field is empty, the method should add Data not available after the label.
     @Test
     public void testToStringHandlesEmptyField(){
         Job testJob8 = new Job ("", new Employer (""), new Location (""),
